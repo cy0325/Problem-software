@@ -11,12 +11,14 @@ public class DBOperation{
     private int number1=0;  
     private int number2=0;  
     private String name;  
-    private String password;  
+    private String password; 
+    
     public DBOperation(MyDBConnection myDB)
     {  
         conn=myDB.getMyConnection();//取得对象  
         stmt=myDB.getMyStatement();//取得sql语句  
     }  
+    
     public void insertData(String name,String password,int scores){  
         try{  
             String newType1=new String(name.getBytes(),"GBK");//字节转码  
@@ -27,6 +29,7 @@ public class DBOperation{
             e1.printStackTrace();  
         }  
     }  
+    
     public void deleteData(int scores){  
         String sql="DELETE FROM user WHERE scores="+scores+"";  
         System.out.print(sql);  
@@ -37,6 +40,7 @@ public class DBOperation{
             e.printStackTrace();  
         }  
     }  
+    
     public void updateData(int mscores,int scores,String name,String password){//修改  
         String sql="UPDATE user SET scores="+scores+",name='"+name+"',password='"+password+"'where scores="+mscores+"&&name='"+name+"'&&password='"+password+"'";  
         try{  
@@ -45,6 +49,7 @@ public class DBOperation{
             e.printStackTrace();  
         }  
     }  
+    
     public boolean  selectPassword(String mpassword){//查询密码  
         String sql="SELECT scores,name,password FROM user";  
         try{  
@@ -64,6 +69,7 @@ public class DBOperation{
         }  
         return false;  
     }  
+    
     public boolean selectName(String mname){//查询id  
         String sql="SELECT scores,name,password FROM user";  
         try{  
@@ -81,19 +87,24 @@ public class DBOperation{
         }  
         return false;  
     }  
+    
     public int getScores(){  
         return scores;  
     }  
+    
     public String getName(){  
         return name;  
     }  
+    
     public String getPassword(){  
         return password;  
-    }  
+    } 
+    
       
     public void setNumber1(){  
         number1=0;  
     }  
+    
     public void setNumber2(){  
         number2=0;  
     }  

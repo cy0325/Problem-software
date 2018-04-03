@@ -10,7 +10,8 @@ public class MyDBConnection{
     private String DBUser;  
     private String DBPass;  
     private Connection conn=null;  
-    private Statement stmt=null;  
+    private Statement stmt=null; 
+    
     public MyDBConnection(){  
         DBDriver="com.mysql.jdbc.Driver";  
         DBURL="jdbc:mysql://123.206.7.198:3307/test";  
@@ -29,13 +30,16 @@ public class MyDBConnection{
         }catch(Exception e){  
             e.printStackTrace();  
         }  
-    }  
+    } 
+    
     public Connection getMyConnection(){  
         return conn;  
     }  
+    
     public Statement getMyStatement(){  
         return stmt;  
     }  
+    
     public void closeMyConnection(){//关闭数据库连接  
         try{  
             stmt.close();  
@@ -44,6 +48,7 @@ public class MyDBConnection{
             e.printStackTrace();  
         }  
     }  
+    
     public String toString(){  
         return "数据库驱动程序"+DBDriver+"，链接地址"+DBURL+"，用户名"+DBUser+"，密码"+DBPass;  
     }  

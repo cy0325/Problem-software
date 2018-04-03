@@ -12,6 +12,9 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
+/*
+ * This is the answer interface.
+ */
 
 public class Myframe extends JFrame {
 	private JTextField answer;
