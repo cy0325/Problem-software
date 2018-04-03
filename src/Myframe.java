@@ -32,12 +32,12 @@ public class Myframe extends JFrame {
     }; 
 	private JTextField answer;
 	private JLabel lun = new JLabel("第 1 轮");;
-	private JLabel scorelb = new JLabel("得分");
-	private static JLabel question = new JLabel("");
+	private JLabel scorelb = new JLabel("得分:");
+	private static JLabel question = new JLabel("____________");
 	private JLabel num = new JLabel("1");
 	private JLabel time = new JLabel("计时：00:00");
 	private JComboBox languae = new JComboBox();
-	private JLabel score = new JLabel("60");
+	private JLabel score = new JLabel("0");
 	private JButton nextbtn = new JButton("下一题");
 	private JButton drawlb = new JButton("成绩图表");
 	private final JButton startbtn = new JButton("开始测试");
@@ -89,38 +89,40 @@ public class Myframe extends JFrame {
 		
 		lun.setFont(new Font("华文行楷", Font.BOLD, 42));
 		lun.setBackground(Color.BLUE);
-		lun.setBounds(317, 13, 139, 71);
+		lun.setBounds(339, 80, 139, 71);
 		panel.add(lun);
 		
-		scorelb.setFont(new Font("宋体", Font.BOLD, 17));
-		scorelb.setBounds(94, 345, 72, 24);
+		scorelb.setFont(new Font("微软雅黑", Font.BOLD, 21));
+		scorelb.setBounds(252, 339, 72, 46);
 		panel.add(scorelb);
+		num.setToolTipText("");
 	
 		num.setHorizontalAlignment(SwingConstants.CENTER);
-		num.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		num.setBorder(new LineBorder(new Color(0, 204, 51), 3, true));
 		num.setFont(new Font("宋体", Font.BOLD, 17));
 		num.setBackground(new Color(0, 255, 255));
-		num.setBounds(149, 176, 45, 34);
+		num.setBounds(234, 209, 45, 34);
 		panel.add(num);
 		question.setForeground(new Color(51, 204, 255));
 		
 		question.setFont(new Font("华文楷体", Font.BOLD, 32));
-		question.setBounds(226, 167, 205, 53);
+		question.setBounds(298, 205, 276, 53);
 		panel.add(question);
 		
 		answer = new JTextField();
 		answer.setFont(new Font("华文楷体", Font.BOLD, 32));
-		answer.setBounds(479, 167, 169, 53);
+		answer.setBounds(588, 205, 128, 53);
 		panel.add(answer);
 		answer.setColumns(10);
 		
-		time.setFont(new Font("宋体", Font.BOLD, 17));
-		time.setBounds(95, 451, 186, 27);
+		time.setFont(new Font("微软雅黑", Font.BOLD, 21));
+		time.setBounds(255, 429, 186, 46);
 		panel.add(time);
 		
 		languae.setEditable(true);
-		languae.setBounds(632, 47, 72, 24);
+		languae.setBounds(582, 68, 72, 24);
 		panel.add(languae);
+		nextbtn.setBackground(new Color(204, 204, 255));
 		
 		//下一题事件监听
 		nextbtn.addActionListener(new ActionListener() {
@@ -150,6 +152,7 @@ public class Myframe extends JFrame {
 						sum=0;
 					}
 					test();
+					answer.setText("");
 				}
 				else{
 					
@@ -161,11 +164,13 @@ public class Myframe extends JFrame {
 		nextbtn.setFont(new Font("宋体", Font.BOLD, 17));
 		nextbtn.setBounds(479, 334, 113, 46);
 		panel.add(nextbtn);
+		score.setForeground(Color.RED);
 		
-		score.setFont(new Font("宋体", Font.BOLD, 17));
+		score.setFont(new Font("宋体", Font.BOLD, 22));
 		score.setHorizontalAlignment(SwingConstants.CENTER);
-		score.setBounds(197, 348, 72, 18);
+		score.setBounds(298, 346, 56, 34);
 		panel.add(score);
+		drawlb.setBackground(new Color(204, 204, 255));
 
 		//成绩图表事件监听
 		drawlb.addActionListener(new ActionListener() {
@@ -175,10 +180,10 @@ public class Myframe extends JFrame {
 			}
 		});
 		drawlb.setFont(new Font("宋体", Font.BOLD, 17));
-		drawlb.setBounds(479, 451, 113, 27);
+		drawlb.setBounds(479, 432, 113, 46);
 		panel.add(drawlb);
-		startbtn.setForeground(new Color(0, 204, 51));
-		startbtn.setBackground(new Color(255, 255, 255));
+		startbtn.setForeground(new Color(255, 0, 51));
+		startbtn.setBackground(new Color(255, 204, 204));
 		
 		//开始测试事件监听
 		startbtn.addActionListener(new ActionListener() {
@@ -208,8 +213,8 @@ public class Myframe extends JFrame {
 			}
 
 		});
-		startbtn.setFont(new Font("宋体", Font.BOLD, 17));
-		startbtn.setBounds(135, 57, 113, 27);
+		startbtn.setFont(new Font("楷体", Font.BOLD, 20));
+		startbtn.setBounds(164, 58, 128, 41);
 		
 		panel.add(startbtn);
 	}	
