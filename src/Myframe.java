@@ -162,7 +162,7 @@ public class Myframe extends JFrame {
 				}
 			}
 		});
-			
+		
 		//设置"成绩图表"按钮
 		drawlb.setBackground(new Color(204, 204, 255));
 		drawlb.setFont(new Font("宋体", Font.BOLD, 17));
