@@ -1,11 +1,14 @@
 import java.awt.Color;  
 import java.awt.Graphics;  
 import java.awt.Graphics2D;
-import java.util.ArrayList; 
+import java.util.ArrayList;
+import java.util.Random;  
   
 import javax.swing.JFrame;  
   
 public class Chart extends JFrame{  
+	
+
   
     //绘制柱形统计图  
 	ArrayList<Integer> ran=new  ArrayList<Integer>();
@@ -22,34 +25,36 @@ public class Chart extends JFrame{
         }
           
         setTitle("绘制柱形图");  
-        setSize(600, 400);
+        setBounds(100, 100,800,860);  
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
     }  
     @Override  
-    public void paint(Graphics g){
-    	int Width = getWidth();
-        int Height = getHeight();
-        int leftMargin = 20;//柱形图左边界
-        int topMargin = 50;//柱形图上边界
-        Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(Color.WHITE);//绘制白色背景
-        g2.fillRect(0, 0, Width, Height-100);//绘制矩形图
-        g2.setColor(Color.black);
-         for(int i=0;i<=10;i++)
-         {
-        	 //绘制灰色横线和百分比
-             g2.drawString((100-10*i)+"", 15, topMargin+30*i);
-             g2.drawLine(5, topMargin+30*i, Width, topMargin+30*i);//绘制灰色横线
-         }
-         g2.setColor(Color.BLUE);
-         for(int i=0;i<=ran.size();i++)
-         {
-        	 //绘制柱形图
-             int step = (i+1)*40;//设置每个柱形图的水平间隔为40
-             //绘制矩形
-             g2.fillRoundRect(leftMargin+step*2-5,(100-ran.get(i))*3+50, 40, 300-(100-ran.get(i))*3, 40, 10);
-             //列出测试轮数
-             g2.drawString("第"+(i+1)+"轮", leftMargin+step*2, 380);
-         }    
-     }  
-}
+    public void paint(Graphics g)
+    {  
+        int Width = getWidth();  
+        int Height = getHeight();  
+        int leftMargin = 20;//柱形图左边界  
+        int topMargin = 80;//柱形图上边界  
+        Graphics2D g2 = (Graphics2D) g;  
+        int ruler = Height-topMargin;  
+        int rulerStep = ruler/40;//将当前的高度评分为20个单位  
+        g2.setColor(Color.WHITE);//绘制白色背景  
+        g2.fillRect(0, 0, Width, Height);//绘制矩形图  
+        g2.setColor(Color.LIGHT_GRAY);  
+        for(int i=0;i<=20;i++){//绘制灰色横线和百分比  
+            g2.drawString(100-(5*i)+"", 15, topMargin+rulerStep*i*2);//写下百分比  
+            g2.drawLine(15, topMargin+rulerStep*i*2+7, Width, topMargin+rulerStep*i*2+7);//绘制灰色横线  
+        }  
+        g2.setColor(Color.PINK);  
+        for(int i=0;i<ran.size();i++){//绘制柱形图  
+        	
+
+            int step = (i+1)*40;//设置每隔柱形图的水平间隔为40  
+            //绘制矩形  
+            g2.fillRoundRect(leftMargin+step*2, Height-ran.get(i)*9+100, 40, ran.get(i)*9, 40, 10);  
+            //列出产品的编号  
+            g2.drawString("第"+(i+1)+"轮"+ran.get(i)+"分", leftMargin+step*2, Height-ran.get(i)*10);  
+        }  
+    }
+    
+}  

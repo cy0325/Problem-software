@@ -2,8 +2,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;  
 import java.sql.SQLException;  
 import java.sql.Statement;  
-
-
+import java.util.ArrayList;  
+import java.util.Arrays;  
+import java.util.Collections;  
+import java.util.List;  
 public class DBOperation{  
     private MyDBConnection myDB=null;  
     private Connection conn=null;  
@@ -76,7 +78,9 @@ public class DBOperation{
                     //System.out.print("number1:"+number1);  
                     return true;  
                 }  
-            }               
+            }  
+              
+              
         }catch(Exception e){  
             e.printStackTrace();  
         }  
