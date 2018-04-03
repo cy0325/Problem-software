@@ -1,17 +1,14 @@
-import java.awt.Button;  
 import java.awt.Color;  
 import java.awt.Font;  
 import java.awt.Graphics;  
 import java.awt.Image;  
 import java.awt.event.*;  
 import java.io.File;  
-import java.io.IOException;  
-  
+import java.io.IOException;    
 import javax.imageio.ImageIO;  
-import javax.swing.*;  
-  
+import javax.swing.*; 
+
 public class login implements MouseListener {  
-  
     public static JFrame frame = new JFrame("登录窗口");  
     private JLabel label1=new JLabel("用户名:");  
     private JTextField txt1=new JTextField();  
@@ -103,10 +100,9 @@ public class login implements MouseListener {
         btn1.addMouseListener(this);//添加鼠标监听  
         btn2.addMouseListener(this);  
         btn3.addMouseListener(this);  
-        frame.setVisible(true);   
-     
+        frame.setVisible(true);          
+    }
     
- }
     public void mouseClicked(MouseEvent arg0) {  
        text1=txt1.getText();//获取用户输入数据  
        text2=txt2.getText();  
@@ -126,23 +122,22 @@ public class login implements MouseListener {
            }  
        }else{  
            JOptionPane.showMessageDialog(null, "此id不存在，请注册","提示",2);  
-            txt1.setText("");  
-            txt2.setText("");  
+           txt1.setText("");  
+           txt2.setText("");  
        }  
        }  
-       if(distinguish==2){  
-             
+       if(distinguish==2){         
            String logi=(String) JOptionPane.showInputDialog(null,"请输入你的id：\n","注册",JOptionPane.PLAIN_MESSAGE,null,null,"在这输入");   
            String pas=(String) JOptionPane.showInputDialog(null,"请输入你的密码：\n","注册",JOptionPane.PLAIN_MESSAGE,null,null,"在这输入");  
-            myOpr.insertData(logi,pas,0);  
-            JOptionPane.showMessageDialog(null, "注册成功","提示",2);  
+           myOpr.insertData(logi,pas,0);  
+           JOptionPane.showMessageDialog(null, "注册成功","提示",2);  
        }  
        if(distinguish==3){  
            int n = JOptionPane.showConfirmDialog(null, "是否退出?", "byebye",JOptionPane.YES_NO_OPTION);  
            myDB.closeMyConnection();  
-            if(n==JOptionPane.YES_OPTION){  
-            System.exit(1);  
-            }  
+           if(n==JOptionPane.YES_OPTION){  
+           System.exit(1);  
+           }  
        }  
          
     }  
@@ -194,13 +189,9 @@ public class login implements MouseListener {
         btn3.setForeground(Color.gray);  
     } 
 
-    
-   
-    
     public static void closeThis(){
     	frame.dispose();
-    	}
-    	
+    	} 	
       
     public void mousePressed(MouseEvent arg0) {  
               
