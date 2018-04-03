@@ -9,11 +9,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;   
 import java.sql.SQLException;
 public class TestMysql {
+	
 
 	//登陆本地数据库
-	private static final String url = "jdbc:mysql://127.0.0.1:3306/test";   
-	private  static final String user = "root";  
-	private  static final String password = "032599";
+	private static final String url = "jdbc:mysql://123.206.7.198:3307/test";   
+	private  static final String user = "qinxh";  
+	private  static final String password = "031578";
 	
 	private static ResultSet ret = null;
 	private  static final String name = "com.mysql.jdbc.Driver";

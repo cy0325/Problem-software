@@ -13,9 +13,9 @@ public class MyDBConnection{
     private Statement stmt=null;  
     public MyDBConnection(){  
         DBDriver="com.mysql.jdbc.Driver";  
-        DBURL="jdbc:mysql://localhost:3306/test";  
-        DBUser="root";//用户名  
-        DBPass="032599";//数据库密码  
+        DBURL="jdbc:mysql://123.206.7.198:3307/test";  
+        DBUser="qinxh";//用户名  
+        DBPass="031578";//数据库密码  
         try{  
             Class.forName(DBDriver);//加载驱动程序  
             //System.out.println("数据库驱动程序加载成功");  

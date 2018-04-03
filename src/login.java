@@ -12,8 +12,8 @@ import javax.swing.*;
   
 public class login implements MouseListener {  
   
-    public JFrame frame = new JFrame("登录窗口");  
-    private JLabel label1=new JLabel("游戏id:");  
+    public static JFrame frame = new JFrame("登录窗口");  
+    private JLabel label1=new JLabel("用户名:");  
     private JTextField txt1=new JTextField();  
     private JLabel label2=new JLabel("密   码:");  
     private JTextField txt2=new JTextField();  
@@ -45,27 +45,44 @@ public class login implements MouseListener {
           
         btn1.setContentAreaFilled(false);//设置button组件透明  
         btn1.setFont(font);  
-            btn1.setForeground(Color.gray);  
-            btn1.setBorder(BorderFactory.createRaisedBevelBorder());//设置突出button组件  
-            btn2.setContentAreaFilled(false);  
+        btn1.setForeground(Color.gray);  
+        btn1.setBorder(BorderFactory.createRaisedBevelBorder());//设置突出button组件  
+        btn1.addActionListener(new ActionListener()
+        {
+            	//单击按钮执行的方法
+            public void actionPerformed(ActionEvent e) 
+            {
+            	closeThis();
+            	//创建新的窗口
+            	Myframe frame = new Myframe();
+            	//设置在屏幕的位置
+            	frame.setTitle("小学四则运算");
+        		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        		frame.setVisible(true);
+            	frame.setVisible(true);
+            	}
+
+         });
+        btn2.setContentAreaFilled(false);  
         btn2.setFont(font);  
         btn2.setBorder(BorderFactory.createRaisedBevelBorder());  
-            btn2.setForeground(Color.gray);  
-            btn3.setContentAreaFilled(false);  
+        btn2.setForeground(Color.gray);  
+        btn3.setContentAreaFilled(false);  
         btn3.setFont(font);  
         btn3.setBorder(BorderFactory.createRaisedBevelBorder());  
-            btn3.setForeground(Color.gray);  
+        btn3.setForeground(Color.gray);  
         JPanel bj = new JPanel() {//设置背景  
             protected void paintComponent(Graphics g) {  
                 Image bg;  
                 try {  
-                    bg = ImageIO.read(new File("src/image/开始背景.PNG"));  
+                    bg = ImageIO.read(new File("src/image/1.jpg"));  
                     g.drawImage(bg, 0, 0, getWidth(), getHeight(), null);  
                 } catch (IOException e) {  
                     e.printStackTrace();  
                 }  
             }  
-        };  
+        }; 
+        
       
         label1.setBounds(100,50,100,100);  
         txt1.setBounds(180,90, 150, 20);  
@@ -87,8 +104,9 @@ public class login implements MouseListener {
         btn2.addMouseListener(this);  
         btn3.addMouseListener(this);  
         frame.setVisible(true);   
-    }  
-      
+     
+    
+ }
     public void mouseClicked(MouseEvent arg0) {  
        text1=txt1.getText();//获取用户输入数据  
        text2=txt2.getText();  
@@ -120,7 +138,7 @@ public class login implements MouseListener {
             JOptionPane.showMessageDialog(null, "注册成功","提示",2);  
        }  
        if(distinguish==3){  
-           int n = JOptionPane.showConfirmDialog(null, "是否退出?", "游戏结束",JOptionPane.YES_NO_OPTION);  
+           int n = JOptionPane.showConfirmDialog(null, "是否退出?", "byebye",JOptionPane.YES_NO_OPTION);  
            myDB.closeMyConnection();  
             if(n==JOptionPane.YES_OPTION){  
             System.exit(1);  
@@ -174,7 +192,15 @@ public class login implements MouseListener {
         btn3.setContentAreaFilled(false);  
         btn3.setBorder(BorderFactory.createRaisedBevelBorder());  
         btn3.setForeground(Color.gray);  
-    }  
+    } 
+
+    
+   
+    
+    public static void closeThis(){
+    	frame.dispose();
+    	}
+    	
       
     public void mousePressed(MouseEvent arg0) {  
               
