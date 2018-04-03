@@ -3,7 +3,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;  
 import java.sql.Statement;  
 
-
 public class DBOperation{  
     private MyDBConnection myDB=null;  
     private Connection conn=null;  
